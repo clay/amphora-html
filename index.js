@@ -1,8 +1,7 @@
 'use strict';
 
-var multiplex;
 const _ = require('lodash'),
-  multiplexTemplates = require('multiplex-templates'),
+  setup = require('./lib/setup'),
   media = require('./lib/media'),
   files = require('./lib/files'),
   glob = require('glob'),
@@ -36,30 +35,29 @@ function getPossibleTemplates(name, templateName) {
  * @return [type]        [description]
  */
 function render(data) {
-  const template = _.get(getPossibleTemplates(data.template, defaultHtmlTemplateName), '[0]', undefined);
+  console.log(data);
 
-  if (!template) {
-    throw new Error('Missing template for ' + data.template);
-  }
 
-  return Promise.resolve(multiplex.render(template, data))
-    .then(media.append(data))
-    .then(result => {
-      return {
-        output: result,
-        type: config.responseType
-      }
-    });
+  // const template = _.get(getPossibleTemplates(data.template, defaultHtmlTemplateName), '[0]', undefined);
+  //
+  // if (!template) {
+  //   throw new Error('Missing template for ' + data.template);
+  // }
+  //
+  // return Promise.resolve(setup.multiplex.render(template, data))
+  //   .then(media.append(data))
+  //   .then(result => {
+  //     return {
+  //       output: result,
+  //       type: config.responseType
+  //     }
+  //   });
 }
 
-/**
- * [addEngines description]
- * @param {[type]} engines [description]
- */
-function addEngines(engines) {
-  multiplex = multiplexTemplates(engines);
-}
 
-module.exports.addEngines = addEngines;
 module.exports.render = render;
 module.exports.config = config;
+
+// Expose setup functions from root
+module.exports.addEngines = setup.addEngines;
+module.exports.addRootPath = setup.addRootPath;
