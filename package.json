@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run eslint",
-    "eslint": "eslint --max-warnings 0 lib test",
-    "build": "docker build -t amphora-html ."
+    "eslint": "eslint --max-warnings 0 lib test"
   },
   "dependencies": {
     "bluebird": "^3.5.0",
