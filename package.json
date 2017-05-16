@@ -10,15 +10,14 @@
   },
   "dependencies": {
     "bluebird": "^3.5.0",
+    "clay-utils": "^1.1.1",
     "glob": "^7.1.1",
     "handlebars": "^4.0.6",
     "js-yaml": "^3.8.2",
     "lodash": "^4.17.4",
-    "multiplex-templates": "^1.3.0",
     "node-fetch": "^1.6.3",
     "nymag-fs": "^1.0.1",
-    "nymag-handlebars": "^1.23.0",
-    "template2env": "^1.0.4"
+    "nymag-handlebars": "^1.23.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
