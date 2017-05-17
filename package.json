@@ -1,0 +1,39 @@
+{
+  "name": "amphora-html",
+  "version": "0.0.1",
+  "description": "An HTML renderer for component data",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run eslint && npm run test-suite",
+    "eslint": "eslint --max-warnings 0 lib test",
+    "test-suite": "istanbul cover _mocha"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "clay-utils": "^1.1.1",
+    "glob": "^7.1.1",
+    "handlebars": "^4.0.6",
+    "js-yaml": "^3.8.2",
+    "lodash": "^4.17.4",
+    "node-fetch": "^1.6.3",
+    "nymag-fs": "^1.0.1",
+    "nymag-handlebars": "^1.23.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.19.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0",
+    "sinon": "1.17.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nymag/amphora-html.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nymag/amphora-html/issues"
+  },
+  "homepage": "https://github.com/nymag/amphora-html#readme"
+}
