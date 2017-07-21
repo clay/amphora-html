@@ -17,7 +17,7 @@
     "lodash": "^4.17.4",
     "node-fetch": "^1.6.3",
     "nymag-fs": "^1.0.1",
-    "nymag-handlebars": "3.1.0"
+    "nymag-handlebars": "3.1.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
