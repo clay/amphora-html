@@ -4,9 +4,9 @@
   "description": "An HTML renderer for component data",
   "main": "index.js",
   "scripts": {
-    "test": "npm run eslint && npm run test-suite",
+    "test": "npm run eslint && npm run mocha",
     "eslint": "eslint --max-warnings 0 lib test",
-    "test-suite": "istanbul cover _mocha"
+    "mocha": "istanbul cover _mocha"
   },
   "dependencies": {
     "bluebird": "^3.5.0",
