@@ -41,7 +41,41 @@ const helpers = {
 amphoraHtml.addHelpers(helpers);
 ```
 
-Now that you have registered your helpers and provided a root path which Amphora HTML can work from, you can register your renderer with Amphora. Registering consists of providing a `renderers` object whose keys are the extension of an HTTP request and whose values are the renderer. You can also specify a `default` property whose value is the extension that Amphora should default to when rendering. This is handy for rendering routes who don't end in extensions, such as `mycoolsite.com/about/`.
+You can add amphora-html plugins like this:
+
+```javascript
+amphoraHtml.addPlugins([
+  plugin1,
+  plugin2
+]);
+```
+
+An amphora plugin is an object with a `render` function like this:
+
+```javascript
+
+module.exports.render = data => {
+  /* `data` has the following keys:
+    - 'site'
+    - 'locals'
+    - '_self'
+    - '_pageData'
+    - '_version'
+    - '_layoutRef'
+    - '_components'
+    - '_componentSchemas'
+    - '_data'
+    - '_media'
+  */
+
+  // you can mutate at will
+
+  // return `data` or a promise for `data`
+  return data
+};
+```
+
+Now that you have registered your helpers and plugins and provided a root path which Amphora HTML can work from, you can register your renderer with Amphora. Registering consists of providing a `renderers` object whose keys are the extension of an HTTP request and whose values are the renderer. You can also specify a `default` property whose value is the extension that Amphora should default to when rendering. This is handy for rendering routes who don't end in extensions, such as `mycoolsite.com/about/`.
 
 ```javascript
 return amphora({
