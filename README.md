@@ -54,21 +54,8 @@ An amphora plugin is an object with a `render` function like this:
 
 ```javascript
 
-module.exports.render = data => {
-  /* `data` has the following keys:
-    - 'site'
-    - 'locals'
-    - '_self'
-    - '_pageData'
-    - '_version'
-    - '_layoutRef'
-    - '_components'
-    - '_componentSchemas'
-    - '_data'
-    - '_media'
-  */
-
-  // you can mutate at will
+module.exports.render = (ref, data, locals) => {
+  // you have the option to mutate `data` here
 
   // return `data` or a promise for `data`
   return data
