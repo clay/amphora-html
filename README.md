@@ -1,6 +1,6 @@
 # Amphora HTML
 
-The HTML renderer for Clay components that use [Handlebars](http://handlebarsjs.com/) templates.
+The HTML renderer for Clay components that use [Handlebars](http://handlebarsjs.com/) templates. 
 
 ## Install
 `$ npm install --save amphora-html`
@@ -10,6 +10,8 @@ The HTML renderer for Clay components that use [Handlebars](http://handlebarsjs.
 HTML rendering was controlled entirely by [Amphora](https://github.com/nymag/amphora) in v2.x, which meant that Amphora was responsible for a lot of heavy lifting. Furthermore, rendering was handled by a module called [Multiplex Templates](https://www.npmjs.com/package/multiplex-templates) which did some :crystal_ball: dark magic :sparkles: to synchronously render component templates. This required some affordances from Amphora which added to the weight of the middleware. By separating renderers out into separate modules which can be plugged into Amphora >v2.x we can create renderers for specific requirements (XML, Amp, etc.) _and_ the rendering process can be moved to separate machines to create more maintainable systems.
 
 ## Integration
+
+### Basic Configuration
 
 First, ensure that you have a compatible version of Amphora installed (v3.x or greater) and require `amphora-html` at the from wherever you are running Amphora.
 
@@ -24,6 +26,8 @@ Second, register a `rootPath` with the renderer. This will allow the renderer to
 // Register a root path for Amphora HTML
 amphoraHtml.addRootPath(path.dirname(path.resolve('./package.json')));
 ```
+
+### Handlebars Helpers
 
 If your templates require any custom [Handlebars Helpers](http://handlebarsjs.com/block_helpers.html) you can register them with the renderer's Handlebars instance. Simply pass in an object whose keys are the names of your helpers and whose values are the helper themselves. Like so:
 
@@ -41,7 +45,22 @@ const helpers = {
 amphoraHtml.addHelpers(helpers);
 ```
 
-You can add amphora-html plugins like this:
+### Amphora HTML Plugins
+
+Amphora HTML plugins let you read and modify the data used in rendering just before rendering occurs. An amphora plugin is an object with a `render` function like this:
+
+```javascript
+
+module.exports.render = (ref, data, locals) => {
+  // you have the option to mutate `data` here
+  // do **not** attempt to mutate `locals`
+
+  // return `data` or a promise for `data`
+  return data
+};
+```
+
+You can add Amphora HTML plugins like this:
 
 ```javascript
 amphoraHtml.addPlugins([
@@ -50,21 +69,15 @@ amphoraHtml.addPlugins([
 ]);
 ```
 
-An amphora plugin is an object with a `render` function like this:
+One use case for amphora plugins is to skip rendering of certain components depending on query parameters, which are available in `locals.query`. A current limitation of the plugin system is that amphora-html plugins do not currently enable you to edit the list of static assets used in rendering.
 
-```javascript
-
-module.exports.render = (ref, data, locals) => {
-  // you have the option to mutate `data` here
-
-  // return `data` or a promise for `data`
-  return data
-};
-```
+> We plan to add more hooks in the future and may put amphora-html in charge of [resolving media](https://github.com/clay/amphora-html/issues/14). Please file an issue if you want more functionality to be added.
 
 > Amphora plugins are skipped in edit mode.
 
-Now that you have registered your helpers and plugins and provided a root path which Amphora HTML can work from, you can register your renderer with Amphora. Registering consists of providing a `renderers` object whose keys are the extension of an HTTP request and whose values are the renderer. You can also specify a `default` property whose value is the extension that Amphora should default to when rendering. This is handy for rendering routes who don't end in extensions, such as `mycoolsite.com/about/`.
+### Register Amphora HTML with your Amphora Instance
+
+Now that you have registered any helpers and plugins and have provided a root path which Amphora HTML can work from, you can register your renderer with Amphora. Registering consists of providing a `renderers` object whose keys are the extension of an HTTP request and whose values are the renderer. You can also specify a `default` property whose value is the extension that Amphora should default to when rendering. This is handy for rendering routes who don't end in extensions, such as `mycoolsite.com/about/`.
 
 ```javascript
 return amphora({
