@@ -62,6 +62,8 @@ module.exports.render = (ref, data, locals) => {
 };
 ```
 
+> Amphora plugins are skipped in edit mode.
+
 Now that you have registered your helpers and plugins and provided a root path which Amphora HTML can work from, you can register your renderer with Amphora. Registering consists of providing a `renderers` object whose keys are the extension of an HTTP request and whose values are the renderer. You can also specify a `default` property whose value is the extension that Amphora should default to when rendering. This is handy for rendering routes who don't end in extensions, such as `mycoolsite.com/about/`.
 
 ```javascript
