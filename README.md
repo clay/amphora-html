@@ -1,6 +1,6 @@
 # Amphora HTML
 
-The HTML renderer for Clay components that use [Handlebars](http://handlebarsjs.com/) templates. 
+The HTML renderer for Clay components that use [Handlebars](http://handlebarsjs.com/) templates.
 
 ## Install
 `$ npm install --save amphora-html`
@@ -37,7 +37,7 @@ const helpers = {
   // set up handlebars helpers that rely on internal services
   'nameOfHelper': () => {
     // helper that does something you need.
-    return true;
+    return 'foobar';
   }
 };
 
@@ -47,7 +47,7 @@ amphoraHtml.addHelpers(helpers);
 
 ### Amphora HTML Plugins
 
-Amphora HTML plugins let you read and modify the data used in rendering just before rendering occurs. An amphora plugin is an object with a `render` function like this:
+Amphora HTML plugins let you read and modify the data used in the rendering process just before the data is sent to Handlebars to be templated. An Amphora HTML plugin is an object with a `render` function that returns a modified `data` object:
 
 ```javascript
 
@@ -56,7 +56,7 @@ module.exports.render = (ref, data, locals) => {
   // do **not** attempt to mutate `locals`
 
   // return `data` or a promise for `data`
-  return data
+  return data;
 };
 ```
 
@@ -69,11 +69,7 @@ amphoraHtml.addPlugins([
 ]);
 ```
 
-One use case for amphora plugins is to skip rendering of certain components depending on query parameters, which are available in `locals.query`. A current limitation of the plugin system is that amphora-html plugins do not currently enable you to edit the list of static assets used in rendering.
-
-> We plan to add more hooks in the future and may put amphora-html in charge of [resolving media](https://github.com/clay/amphora-html/issues/14). Please file an issue if you want more functionality to be added.
-
-> Amphora plugins are skipped in edit mode.
+One use case for Amphora HTMK plugins is to skip rendering of certain components depending on query parameters, which are available in `locals.query`. Amphora HTML plugins do not run when rendering for edit mode.
 
 ### Register Amphora HTML with your Amphora Instance
 
