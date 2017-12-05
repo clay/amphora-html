@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "bluebird": "^3.5.0",
+    "clay-log": "^1.2.0",
     "clay-utils": "^1.1.1",
     "glob": "^7.1.1",
     "handlebars": "^4.0.6",
