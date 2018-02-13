@@ -9,20 +9,9 @@ const glob = require('glob'),
 chai.config.showDiff = true;
 chai.config.truncateThreshold = 0;
 
-// process.on('unhandledRejection', (reason, p) => {
-//   console.log('Unhandled Rejection at:', p, 'reason:', reason);
-//   // application specific logging, throwing an error, or other logic here
-// });
-
-
 // make sure the index file can be loaded at least
 require('..');
 
 _.each(tests, function (test) {
-  // if (_.includes(test, 'render'))
   require(test);
 });
-
-// _.each(apiTests, function (test) {
-//   require(test);
-// });
