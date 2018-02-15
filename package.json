@@ -1,6 +1,6 @@
 {
   "name": "amphora-html",
-  "version": "1.7.0",
+  "version": "2.0.0-rc1",
   "description": "An HTML renderer for component data",
   "main": "index.js",
   "scripts": {
@@ -12,13 +12,15 @@
     "bluebird": "^3.5.0",
     "clay-log": "^1.2.0",
     "clayhandlebars": "^3.2.2",
-    "clayutils": "^1.0.0",
+    "clayutils": "^2.0.3",
     "glob": "^7.1.1",
     "handlebars": "^4.0.6",
+    "highland": "^2.11.1",
     "js-yaml": "^3.8.2",
     "lodash": "^4.17.4",
     "node-fetch": "^1.6.3",
-    "nymag-fs": "^1.0.1"
+    "nymag-fs": "^1.0.1",
+    "stream-handlebars": "^0.2.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
