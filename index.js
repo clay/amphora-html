@@ -6,7 +6,6 @@ const setup = require('./lib/setup'),
 module.exports.render = render;
 module.exports.setEnvVars = render.setEnvVars;
 module.exports.addResolveMedia = setup.addResolveMedia;
-module.exports.addRootPath = setup.addRootPath;
 module.exports.addHelpers = setup.addHelpers;
 module.exports.addPlugins = setup.addPlugins;
 module.exports.configureRender = setup.configureRender;
