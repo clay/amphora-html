@@ -9,7 +9,7 @@
     "mocha": "istanbul cover _mocha"
   },
   "dependencies": {
-    "amphora-fs": "file:../amphora-fs",
+    "amphora-fs": "^0.1.0",
     "bluebird": "^3.5.0",
     "clay-log": "^1.2.0",
     "clayhandlebars": "^3.2.2",
