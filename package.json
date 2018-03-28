@@ -1,6 +1,6 @@
 {
   "name": "amphora-html",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "An HTML renderer for component data",
   "main": "index.js",
   "scripts": {
@@ -9,6 +9,7 @@
     "mocha": "istanbul cover _mocha"
   },
   "dependencies": {
+    "amphora-fs": "^0.1.0",
     "bluebird": "^3.5.0",
     "clay-log": "^1.2.0",
     "clayhandlebars": "^3.2.2",
