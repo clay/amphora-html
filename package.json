@@ -4,9 +4,9 @@
   "description": "An HTML renderer for component data",
   "main": "index.js",
   "scripts": {
-    "test": "npm run eslint && npm run mocha",
+    "test": "npm run eslint && npm run jest -- --coverage --no-cache",
     "eslint": "eslint --max-warnings 0 lib test",
-    "mocha": "istanbul cover _mocha"
+    "jest": "jest"
   },
   "dependencies": {
     "amphora-fs": "^0.1.0",
