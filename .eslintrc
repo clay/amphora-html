@@ -5,12 +5,6 @@
     "mocha": true,
     "es6": true
   },
-  // add global vars for chai, etc
-  "globals": {
-    "expect": false,
-    "chai": false,
-    "sinon": false
-  },
   // enable the es6 features supported by our browsers / iojs
   "ecmaFeatures": {
     "arrowFunctions": true,
