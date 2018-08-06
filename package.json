@@ -4,9 +4,9 @@
   "description": "An HTML renderer for component data",
   "main": "index.js",
   "scripts": {
-    "test": "npm run eslint && npm run mocha",
+    "test": "npm run eslint && npm run jest -- --coverage --no-cache",
     "eslint": "eslint --max-warnings 0 lib test",
-    "mocha": "istanbul cover _mocha"
+    "jest": "jest"
   },
   "dependencies": {
     "amphora-fs": "^0.1.0",
@@ -22,16 +22,33 @@
     "traverse": "^0.6.6"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
     "coveralls": "^3.0.0",
     "eslint": "^3.19.0",
-    "istanbul": "^0.4.5",
-    "mocha": "^3.2.0",
-    "sinon": "1.17.7"
+    "jest": "^23.4.1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nymag/amphora-html.git"
+  },
+  "jest": {
+    "clearMocks": true,
+    "restoreMocks": true,
+    "collectCoverageFrom": [
+      "<rootDir>/lib/**/*.js"
+    ],
+    "coverageReporters": [
+      "lcov",
+      "text-summary"
+    ],
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "setupFiles": [
+      "<rootDir>/test/setupFile.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(hbs)$": "<rootDir>/__mocks__/fileMock.js"
+    }
   },
   "author": "",
   "license": "MIT",
