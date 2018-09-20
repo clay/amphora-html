@@ -1,6 +1,6 @@
 {
   "name": "amphora-html",
-  "version": "3.4.5",
+  "version": "4.0.0",
   "description": "An HTML renderer for component data",
   "main": "index.js",
   "scripts": {
