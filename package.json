@@ -9,7 +9,7 @@
     "jest": "jest"
   },
   "dependencies": {
-    "amphora-fs": "^0.1.0",
+    "amphora-fs": "1.0.1",
     "bluebird": "^3.5.0",
     "clay-log": "^1.2.0",
     "clayhandlebars": "^3.2.2",
