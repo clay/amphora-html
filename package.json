@@ -22,10 +22,9 @@
     "traverse": "^0.6.6"
   },
   "devDependencies": {
-    "coveralls": "^3.0.0",
+    "coveralls": "^3.0.2",
     "eslint": "^3.19.0",
-    "jest": "^23.4.1",
-    "sshpk": "^1.14.2"
+    "jest": "23.6.0"
   },
   "repository": {
     "type": "git",
