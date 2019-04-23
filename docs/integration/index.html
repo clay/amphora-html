@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Integration · Amphora html</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;hr&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Integration · Amphora html"/><meta property="og:type" content="website"/><meta property="og:url" content="https://clay.github.io/amphora-html/"/><meta property="og:description" content="&lt;hr&gt;
+"/><meta property="og:image" content="https://clay.github.io/amphora-html/#99D3DF"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://clay.github.io/amphora-html/#99D3DF"/><link rel="shortcut icon" href="/amphora-html/"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/amphora-html/css/main.css"/><script src="/amphora-html/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/amphora-html/"><img class="logo" src="/amphora-html/img/logo.svg" alt="Amphora html"/><h2 class="headerTitleWithLogo">Amphora html</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"></ul></nav></div></header></div></div><div class="navPusher singleRowMobileNav"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Integration</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Introduction<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/amphora-html/docs/intro">Amphora HTML</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Integration<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem navListItemActive"><a class="navItem" href="/amphora-html/docs/integration">Integration</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Integration</h1></header><article><div><span><hr>
+<h2><a class="anchor" aria-hidden="true" id="basic-configuration"></a><a href="#basic-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Basic Configuration</h2>
+<p>First, ensure that you have a compatible version of Amphora installed (v3.x or greater) and require <code>amphora-html</code> from wherever you are running Amphora.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> amphoraHtml = <span class="hljs-built_in">require</span>(<span class="hljs-string">'amphora-html'</span>);
+</code></pre>
+<p>Second, register a <code>rootPath</code> with the renderer. This will allow the renderer to reference your components directory and static assets directory properly. Usually this is the root of your project, but that may not be the case for your implementation.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">// Register a root path for Amphora HTML</span>
+amphoraHtml.addRootPath(path.dirname(path.resolve(<span class="hljs-string">'./package.json'</span>)));
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="handlebars-helpers"></a><a href="#handlebars-helpers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Handlebars Helpers</h2>
+<p>If your templates require any custom <a href="http://handlebarsjs.com/block_helpers.html">Handlebars Helpers</a> you can register them with the renderer's Handlebars instance. Simply pass in an object whose keys are the names of your helpers and whose values are the helper themselves. Like so:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">// My helpers</span>
+<span class="hljs-keyword">const</span> helpers = {
+  <span class="hljs-comment">// set up handlebars helpers that rely on internal services</span>
+  <span class="hljs-string">'nameOfHelper'</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-comment">// helper that does something you need.</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'foobar'</span>;
+  }
+};
+
+<span class="hljs-comment">// Register helpers</span>
+amphoraHtml.addHelpers(helpers);
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="amphora-html-plugins"></a><a href="#amphora-html-plugins" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Amphora HTML Plugins</h2>
+<p>Amphora HTML plugins let you read and modify the data used in the rendering process just before the data is sent to Handlebars to be templated. An Amphora HTML plugin is an object with a <code>render</code> function that returns a modified <code>data</code> object:</p>
+<pre><code class="hljs css language-javascript">
+<span class="hljs-built_in">module</span>.exports.render = <span class="hljs-function">(<span class="hljs-params">ref, data, locals</span>) =&gt;</span> {
+  <span class="hljs-comment">// you have the option to mutate `data` here</span>
+  <span class="hljs-comment">// do **not** attempt to mutate `locals`</span>
+
+  <span class="hljs-comment">// return `data` or a promise for `data`</span>
+  <span class="hljs-keyword">return</span> data;
+};
+</code></pre>
+<p>You can add Amphora HTML plugins like this:</p>
+<pre><code class="hljs css language-javascript">amphoraHtml.addPlugins([
+  plugin1,
+  plugin2
+]);
+</code></pre>
+<p>One use case for Amphora HTML plugins is to skip rendering of certain components depending on query parameters, which are available in <code>locals.query</code>. Amphora HTML plugins do not run when rendering for edit mode.</p>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="register-amphora-html-with-your-amphora-instance"></a><a href="#register-amphora-html-with-your-amphora-instance" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Register Amphora HTML with your Amphora Instance</h2>
+<p>Now that you have registered any helpers and plugins and have provided a root path which Amphora HTML can work from, you can register your renderer with Amphora. Registering consists of providing a <code>renderers</code> object whose keys are the extension of an HTTP request and whose values are the renderer. You can also specify a <code>default</code> property whose value is the extension that Amphora should default to when rendering. This is handy for rendering routes who don't end in extensions, such as <code>mycoolsite.com/about/</code>.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">return</span> amphora({
+  <span class="hljs-attr">app</span>: app,
+  <span class="hljs-attr">renderers</span>: {
+    <span class="hljs-attr">html</span>: amphoraHtml,
+    <span class="hljs-attr">default</span>: <span class="hljs-string">'html'</span>
+  },
+  <span class="hljs-attr">providers</span>: [<span class="hljs-string">'apikey'</span>, amphoraProvider],
+  <span class="hljs-attr">sessionStore</span>: redisStore,
+  <span class="hljs-attr">plugins</span>: [
+    amphoraSearch
+  ]
+});
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/amphora-html/docs/intro"><span class="arrow-prev">← </span><span>Amphora HTML</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#basic-configuration">Basic Configuration</a></li><li><a href="#handlebars-helpers">Handlebars Helpers</a></li><li><a href="#amphora-html-plugins">Amphora HTML Plugins</a></li><li><a href="#register-amphora-html-with-your-amphora-instance">Register Amphora HTML with your Amphora Instance</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/amphora-html/" class="nav-home"></a><div><h5>Docs</h5><a href="/amphora-html/docs/en/intro">Introduction</a></div><div><h5>More</h5><a target="_blank" href="https://github.com/clay/amphora-html">GitHub</a></div></section><section class="copyright">Copyright © 2019 New York Media</section></footer></div></body></html>
