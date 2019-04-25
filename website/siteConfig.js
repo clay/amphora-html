@@ -54,7 +54,12 @@ const siteConfig = {
 
   // Open Graph and Twitter card images.
   ogImage: '#99D3DF',
-  twitterImage: '#99D3DF'
+  twitterImage: '#99D3DF',
+  algolia: {
+    apiKey: process.env.ALGOLIA_API_KEY,
+    indexName: 'TBD',
+    algoliaOptions: {} // Optional, if provided by Algolia
+  }
 
   // Show documentation's last contributor's name.
   // enableUpdateBy: true,
