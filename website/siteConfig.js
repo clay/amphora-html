@@ -9,6 +9,7 @@
 // site configuration options.
 
 const repoUrl = 'https://github.com/clay/amphora-html';
+projectName = process.env.PROJECT_NAME || 'amphora-html';
 
 const siteConfig = {
   title: 'Amphora html', // Title for your website.
@@ -17,7 +18,7 @@ const siteConfig = {
   baseUrl: '/amphora-html/', // Base URL for your project */
 
   // Used for publishing and more
-  projectName: 'amphora-html',
+  projectName,
   organizationName: 'clayplatform',
 
   // For no header links in the top nav bar -> headerLinks: [],
