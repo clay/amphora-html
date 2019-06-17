@@ -1,6 +1,6 @@
 workflow "Deploy to GitHub Pages" {
   on = "push"
-  resolves = ["Build and push docs"]
+  resolves = []
 }
 
  action "Filter branch" {
