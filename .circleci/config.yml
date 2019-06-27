@@ -33,14 +33,6 @@ jobs:
       - persist_to_workspace:
           root: ~/repo
           paths: .
-  deploy:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: ~/repo
-      - run:
-          name: Put To Pages
-          command: npm run docs:publish
 
 workflows:
   version: 2
@@ -50,11 +42,3 @@ workflows:
           filters:
             tags:
               only: /^v[0-9]+\.[0-9]+\.[0-9]+/
-      - deploy:
-          requires:
-            - test
-          filters:
-            tags:
-              only: /^v[0-9]+\.[0-9]+\.[0-9]+/
-            branches:
-              ignore: /.*/
