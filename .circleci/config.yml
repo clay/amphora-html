@@ -22,7 +22,9 @@ jobs:
       - run:
           name: Run tests
           command: npm test
-
+      - run:
+          name: Send to Coveralls
+          command: cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
       - save_cache:
           paths:
             - node_modules
@@ -36,9 +38,6 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
-      - run:
-          name: Send to Coveralls
-          command: cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
       - run:
           name: Put To Pages
           command: npm run docs:publish
