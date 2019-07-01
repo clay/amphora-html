@@ -3,4 +3,5 @@
 <url> <loc>https://clay.github.io/amphora-html/index</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://clay.github.io/amphora-html/en/index" /> </url>
 <url> <loc>https://clay.github.io/amphora-html/docs/integration</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://clay.github.io/amphora-html/docs/integration" /> </url>
 <url> <loc>https://clay.github.io/amphora-html/docs/intro</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://clay.github.io/amphora-html/docs/intro" /> </url>
+<url> <loc>https://clay.github.io/amphora-html/docs/style</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://clay.github.io/amphora-html/docs/style" /> </url>
 </urlset>
