@@ -40,7 +40,7 @@ amphoraHtml.addHelpers(helpers);
 ---
 ## Amphora HTML Plugins
 
-Amphora HTML plugins let you read and modify the data used in the rendering process just before the data is sent to Handlebars to be templated. An Amphora HTML plugin is an object with a `render` function that returns a modified `data` object:
+Amphora HTML plugins let you read and modify the data used in the rendering process just before the data is sent to Handlebars to be templated. An Amphora HTML plugin is an object with a `render` function that returns a modified `data` object or a `postRender` function that returns the computer HTML and response object:
 
 ```javascript
 
@@ -51,14 +51,22 @@ module.exports.render = (ref, data, locals) => {
   // return `data` or a promise for `data`
   return data;
 };
+
+module.exports.postRender = (html, res) => {
+  // you have the option to mutate `html` here
+  // you have acces to the response object here
+
+  // return `html` or a promise for `html`
+  return html;
+};
 ```
 
 You can add Amphora HTML plugins like this:
 
 ```javascript
 amphoraHtml.addPlugins([
-  plugin1,
-  plugin2
+  { render: plugin1 },
+  { postRender: plugin2 }
 ]);
 ```
 
