@@ -60,9 +60,9 @@ module.exports.render = (ref, data, locals) => {
   return data;
 };
 
-module.exports.postRender = (html, res) => {
+module.exports.postRender = (ref, html, locals) => {
   // you have the option to mutate `html` here
-  // you have acces to the response object here
+  // do **not** attempt to mutate `locals`
 
   // return `html` or a promise for `html`
   return html;
