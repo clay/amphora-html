@@ -8,9 +8,15 @@ workflow "Deploy to GitHub Pages" {
   args = "branch master"
 }
 
- action "Build and push docs" {
+action "Update version" {
   needs = ["Filter branch"]
   uses = "clay/docusaurus-github-action@master"
-  args="deploy"
+  args = "version"
+}
+
+ action "Build and push docs" {
+  needs = ["Update version"]
+  uses = "clay/docusaurus-github-action@master"
+  args = "deploy"
   secrets = ["DEPLOY_SSH_KEY"]
 }
