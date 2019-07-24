@@ -10,6 +10,7 @@ workflow "Deploy to GitHub Pages" {
 
  action "Build and push docs" {
   needs = ["Filter branch"]
-  uses = "clay/docusaurus-github-action/build_deploy@master"
+  uses = "clay/docusaurus-github-action@master"
+  args="deploy"
   secrets = ["DEPLOY_SSH_KEY"]
 }
