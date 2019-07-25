@@ -1,0 +1,13 @@
+{
+  "version-4.0.0-docs": {
+    "Introduction": [
+      "version-4.0.0-intro"
+    ],
+    "Integration": [
+      "version-4.0.0-integration"
+    ],
+    "Styleguide": [
+      "version-4.0.0-style"
+    ]
+  }
+}
