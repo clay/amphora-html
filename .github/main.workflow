@@ -8,8 +8,14 @@ workflow "Deploy to GitHub Pages" {
   args = "branch master"
 }
 
-action "Update version" {
+action "Install" {
   needs = ["Filter branch"]
+  uses = "actions/npm@master"
+  args = "install --prefix ./website"
+}
+
+action "Update version" {
+  needs = ["Install"]
   uses = "clay/docusaurus-github-action@master"
   args = "version"
 }
