@@ -12,17 +12,17 @@
     "amphora-fs": "1.0.1",
     "bluebird": "^3.5.0",
     "clay-log": "^1.2.0",
-    "clayhandlebars": "^3.2.2",
+    "clayhandlebars": "github:clay/handlebars#upgrade-handlebars",
     "clayutils": "^2.0.3",
     "glob": "^7.1.1",
-    "handlebars": "^4.0.6",
+    "handlebars": "^4.7.6",
     "js-yaml": "^3.8.2",
     "lodash": "^4.17.5",
     "nymag-fs": "^1.0.1",
     "traverse": "^0.6.6"
   },
   "devDependencies": {
-    "coveralls": "^3.0.2",
+    "coveralls": "^3.1.0",
     "eslint": "^3.19.0",
     "jest": "23.6.0"
   },
