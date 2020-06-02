@@ -12,7 +12,7 @@
     "amphora-fs": "1.0.1",
     "bluebird": "^3.5.0",
     "clay-log": "^1.2.0",
-    "clayhandlebars": "^5.0.0",
+    "clayhandlebars": "^5.0.1",
     "clayutils": "^2.0.3",
     "glob": "^7.1.1",
     "handlebars": "^4.7.6",
