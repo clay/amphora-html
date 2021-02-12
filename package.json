@@ -13,7 +13,7 @@
     "bluebird": "^3.5.0",
     "clay-log": "^1.2.0",
     "clayhandlebars": "5.0.2-0",
-    "clayutils": "^2.0.3",
+    "clayutils": "clay/clayutils#handlebars_peer_dependency",
     "glob": "^7.1.1",
     "js-yaml": "^3.8.2",
     "lodash": "^4.17.5",
