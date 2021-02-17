@@ -9,10 +9,10 @@
     "jest": "jest"
   },
   "dependencies": {
-    "amphora-fs": "1.0.1",
+    "amphora-fs": "^2.0.0-0",
     "bluebird": "^3.5.0",
     "clay-log": "^1.2.0",
-    "clayutils": "^2.0.3",
+    "clayutils": "^3.0.0-0",
     "glob": "^7.1.1",
     "js-yaml": "^3.8.2",
     "lodash": "^4.17.5",
