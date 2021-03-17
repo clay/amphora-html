@@ -9,13 +9,11 @@
     "jest": "jest"
   },
   "dependencies": {
-    "amphora-fs": "1.0.1",
+    "amphora-fs": "^2.0.0",
     "bluebird": "^3.5.0",
     "clay-log": "^1.2.0",
-    "clayhandlebars": "^3.2.2",
-    "clayutils": "^2.0.3",
+    "clayutils": "^3.0.0",
     "glob": "^7.1.1",
-    "handlebars": "^4.0.6",
     "js-yaml": "^3.8.2",
     "lodash": "^4.17.5",
     "nymag-fs": "^1.0.1",
@@ -25,6 +23,10 @@
     "coveralls": "^3.0.2",
     "eslint": "^3.19.0",
     "jest": "23.6.0"
+  },
+  "peerDependencies": {
+    "handlebars": "4",
+    "clayhandlebars": "5"
   },
   "repository": {
     "type": "git",
