@@ -58,7 +58,7 @@
     "no-trailing-spaces": 2,
     "no-underscore-dangle": 0,
     "no-unneeded-ternary": 1,
-    "one-var": 2,
+    "one-var": 0,
     "quotes": [2, "single", "avoid-escape"],
     "semi": [2, "always"],
     "keyword-spacing": 2,
