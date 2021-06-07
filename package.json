@@ -20,6 +20,7 @@
     "traverse": "^0.6.6"
   },
   "devDependencies": {
+    "clayhandlebars": "^5.0.1",
     "coveralls": "^3.0.2",
     "eslint": "^3.19.0",
     "jest": "23.6.0"
