@@ -1,26 +1,37 @@
-on: push
 name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [master]
+
 jobs:
-  filterBranch:
-    name: Filter branch
+  deploy-docs:
+    name: Deploy docs
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
-    - uses: actions/checkout@master
-    - name: Filter branch
-      uses: actions/bin/filter@master
-      with:
-        args: branch master
-    - name: Install
-      uses: actions/npm@master
-      with:
-        args: install --prefix ./website
-    - name: Update version
-      uses: clay/docusaurus-github-action@master
-      with:
-        args: version
-    - name: Build and push docs
-      uses: clay/docusaurus-github-action@master
-      env:
-        DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
-      with:
-        args: deploy
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '16'
+
+      - name: Install website dependencies
+        run: npm install
+        working-directory: website
+
+      - name: Update Docusaurus version
+        uses: clay/docusaurus-github-action@f3ea5271a51c1f06e456d55e490993985210c02b
+        with:
+          args: version
+
+      - name: Build and publish to gh-pages
+        uses: clay/docusaurus-github-action@f3ea5271a51c1f06e456d55e490993985210c02b
+        env:
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+        with:
+          args: deploy
