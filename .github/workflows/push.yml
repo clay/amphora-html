@@ -21,7 +21,7 @@ jobs:
           node-version: '16'
 
       - name: Install website dependencies
-        run: npm ci
+        run: npm install
         working-directory: website
 
       - name: Update Docusaurus version
