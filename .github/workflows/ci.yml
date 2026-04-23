@@ -38,10 +38,3 @@ jobs:
       - name: Run tests
         run: npm test
 
-      - name: Upload coverage to Coveralls
-        if: success() && matrix.node-version == 20
-        uses: coverallsapp/github-action@v2
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          path-to-lcov: coverage/lcov.info
-        continue-on-error: true
