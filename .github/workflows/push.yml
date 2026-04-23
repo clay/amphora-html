@@ -9,7 +9,7 @@ jobs:
     name: Deploy docs
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
     steps:
       - uses: actions/checkout@v4
         with:
@@ -21,17 +21,19 @@ jobs:
           node-version: '16'
 
       - name: Install website dependencies
-        run: npm install
+        run: npm ci
         working-directory: website
 
       - name: Update Docusaurus version
-        uses: clay/docusaurus-github-action@f3ea5271a51c1f06e456d55e490993985210c02b
-        with:
-          args: version
+        run: npm run version
+        working-directory: website
 
-      - name: Build and publish to gh-pages
-        uses: clay/docusaurus-github-action@f3ea5271a51c1f06e456d55e490993985210c02b
-        env:
-          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+      - name: Build Docusaurus site
+        run: npm run build
+        working-directory: website
+
+      - name: Publish docs to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          args: deploy
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./website/build/amphora-html
