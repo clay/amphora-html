@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "amphora-fs": "^2.0.0",
-    "bluebird": "^3.5.0",
     "clay-log": "^1.2.0",
     "clayutils": "^3.0.0",
     "glob": "^7.1.1",
