@@ -24,12 +24,12 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "clayhandlebars": "^5.0.1",
+    "clayhandlebars": "^6.0.0",
     "eslint": "^10.14.0"
   },
   "peerDependencies": {
     "handlebars": "4",
-    "clayhandlebars": "5"
+    "clayhandlebars": "^6.0.0"
   },
   "repository": {
     "type": "git",
