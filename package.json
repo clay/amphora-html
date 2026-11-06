@@ -17,7 +17,7 @@
     "test": "npm run lint && node --test --experimental-test-coverage --test-coverage-exclude=\"**/*.test.js\" --test-coverage-lines=100 --test-coverage-branches=100 --test-coverage-functions=100 \"lib/*.test.js\" \"test/*.test.js\""
   },
   "dependencies": {
-    "amphora-fs": "^2.0.0",
+    "amphora-fs": "^3.0.0",
     "clay-log": "^1.6.0",
     "clayhandlebars": "^6.0.0",
     "clayutils": "^3.0.0"
