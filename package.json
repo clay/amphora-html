@@ -14,16 +14,12 @@
   "dependencies": {
     "amphora-fs": "^2.0.0",
     "clay-log": "^1.6.0",
+    "clayhandlebars": "^6.0.0",
     "clayutils": "^3.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "clayhandlebars": "^6.0.0",
     "eslint": "^10.14.0"
-  },
-  "peerDependencies": {
-    "handlebars": "4",
-    "clayhandlebars": "^6.0.0"
   },
   "repository": {
     "type": "git",

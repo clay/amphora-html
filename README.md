@@ -5,6 +5,8 @@ The HTML renderer for Clay components that use [Handlebars](http://handlebarsjs.
 ## Install
 `$ npm install --save amphora-html`
 
+Requires Node 26.12.1 or later. Templates are rendered with [clayhandlebars](https://github.com/clay/handlebars) 6, which comes with amphora-html: you don't need to install it or Handlebars yourself.
+
 ## The Why
 
 HTML rendering was controlled entirely by [Amphora](https://github.com/nymag/amphora) in v2.x, which meant that Amphora was responsible for a lot of heavy lifting. Furthermore, rendering was handled by a module called [Multiplex Templates](https://www.npmjs.com/package/multiplex-templates) which did some :crystal_ball: dark magic :sparkles: to synchronously render component templates. This required some affordances from Amphora which added to the weight of the middleware. By separating renderers out into separate modules which can be plugged into Amphora >v2.x we can create renderers for specific requirements (XML, Amp, etc.) _and_ the rendering process can be moved to separate machines to create more maintainable systems.
@@ -44,6 +46,21 @@ const helpers = {
 // Register helpers
 amphoraHtml.addHelpers(helpers);
 ```
+
+### The Handlebars environment
+
+`amphoraHtml.handlebars` is the Handlebars environment amphora-html renders with: clayhandlebars' helpers and partials, the helpers given to `addHelpers`, and a partial for every component and layout (registered when amphora-html is first required). `amphoraHtml.wrapPartial(name, template)` is what each component and layout template is wrapped in before it is registered.
+
+Use them when you compile templates outside of a page render, in a test for instance, so that they run with exactly the helpers the pages get, instead of requiring your own copy of clayhandlebars:
+
+```javascript
+const { handlebars, wrapPartial } = require('amphora-html');
+
+handlebars.registerPartial('my-partial', handlebars.compile(wrapPartial('my-partial', source), { preventIndent: true }));
+const html = handlebars.compile(template, { preventIndent: true })(data);
+```
+
+It is the `handlebars` module that clayhandlebars requires, so whatever you register on it is seen by the pages too.
 
 ### Amphora HTML Plugins
 
