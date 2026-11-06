@@ -7,9 +7,9 @@
     "node": ">=20.14.0"
   },
   "scripts": {
-    "test": "npm run eslint && npm run jest -- --coverage --no-cache",
-    "eslint": "eslint --max-warnings 0 lib test",
-    "jest": "jest"
+    "lint": "eslint --max-warnings 0",
+    "test-local": "node --test \"lib/*.test.js\" \"test/*.test.js\"",
+    "test": "npm run lint && node --test --experimental-test-coverage --test-coverage-exclude=\"**/*.test.js\" --test-coverage-lines=100 --test-coverage-branches=100 --test-coverage-functions=100 \"lib/*.test.js\" \"test/*.test.js\""
   },
   "dependencies": {
     "amphora-fs": "^2.0.0",
@@ -23,9 +23,9 @@
     "traverse": "^0.6.6"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "clayhandlebars": "^5.0.1",
-    "eslint": "^3.19.0",
-    "jest": "23.6.0"
+    "eslint": "^10.14.0"
   },
   "peerDependencies": {
     "handlebars": "4",
@@ -34,26 +34,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/clay/amphora-html.git"
-  },
-  "jest": {
-    "clearMocks": true,
-    "restoreMocks": true,
-    "collectCoverageFrom": [
-      "<rootDir>/lib/**/*.js"
-    ],
-    "coverageReporters": [
-      "lcov",
-      "text-summary"
-    ],
-    "moduleFileExtensions": [
-      "js"
-    ],
-    "setupFiles": [
-      "<rootDir>/test/setupFile.js"
-    ],
-    "moduleNameMapper": {
-      "\\.(hbs)$": "<rootDir>/__mocks__/fileMock.js"
-    }
   },
   "author": "",
   "license": "MIT",
