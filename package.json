@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "amphora-fs": "^2.0.0",
-    "clay-log": "^1.2.0",
+    "clay-log": "^1.6.0",
     "clayutils": "^3.0.0"
   },
   "devDependencies": {
