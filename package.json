@@ -17,8 +17,7 @@
     "clayutils": "^3.0.0",
     "glob": "^7.1.1",
     "js-yaml": "^3.8.2",
-    "nymag-fs": "^1.0.1",
-    "traverse": "^0.6.6"
+    "nymag-fs": "^1.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
