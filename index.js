@@ -9,3 +9,5 @@ module.exports.addResolveMedia = setup.addResolveMedia;
 module.exports.addHelpers = setup.addHelpers;
 module.exports.addPlugins = setup.addPlugins;
 module.exports.configureRender = setup.configureRender;
+module.exports.handlebars = setup.handlebars;
+module.exports.wrapPartial = setup.wrapPartial;

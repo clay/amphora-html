@@ -1,65 +1,39 @@
 {
   "name": "amphora-html",
-  "version": "6.0.0",
+  "version": "7.0.0",
   "description": "An HTML renderer for component data",
   "main": "index.js",
+  "files": [
+    "index.js",
+    "lib",
+    "!**/*.test.js"
+  ],
   "engines": {
-    "node": ">=20.14.0"
+    "node": ">=26.12.1"
   },
   "scripts": {
-    "test": "npm run eslint && npm run jest -- --coverage --no-cache",
-    "eslint": "eslint --max-warnings 0 lib test",
-    "jest": "jest"
+    "lint": "eslint --max-warnings 0",
+    "test-local": "node --test \"lib/*.test.js\" \"test/*.test.js\"",
+    "test": "npm run lint && node --test --experimental-test-coverage --test-coverage-exclude=\"**/*.test.js\" --test-coverage-lines=100 --test-coverage-branches=100 --test-coverage-functions=100 \"lib/*.test.js\" \"test/*.test.js\""
   },
   "dependencies": {
-    "amphora-fs": "^2.0.0",
-    "bluebird": "^3.5.0",
-    "clay-log": "^1.2.0",
-    "clayutils": "^3.0.0",
-    "glob": "^7.1.1",
-    "js-yaml": "^3.8.2",
-    "lodash": "^4.17.5",
-    "nymag-fs": "^1.0.1",
-    "traverse": "^0.6.6"
+    "amphora-fs": "^3.0.0",
+    "clay-log": "^1.6.0",
+    "clayhandlebars": "^6.0.0",
+    "clayutils": "^4.0.0"
   },
   "devDependencies": {
-    "clayhandlebars": "^5.0.1",
-    "coveralls": "^3.0.2",
-    "eslint": "^3.19.0",
-    "jest": "23.6.0"
-  },
-  "peerDependencies": {
-    "handlebars": "4",
-    "clayhandlebars": "5"
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.14.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nymag/amphora-html.git"
-  },
-  "jest": {
-    "clearMocks": true,
-    "restoreMocks": true,
-    "collectCoverageFrom": [
-      "<rootDir>/lib/**/*.js"
-    ],
-    "coverageReporters": [
-      "lcov",
-      "text-summary"
-    ],
-    "moduleFileExtensions": [
-      "js"
-    ],
-    "setupFiles": [
-      "<rootDir>/test/setupFile.js"
-    ],
-    "moduleNameMapper": {
-      "\\.(hbs)$": "<rootDir>/__mocks__/fileMock.js"
-    }
+    "url": "git+https://github.com/clay/amphora-html.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nymag/amphora-html/issues"
+    "url": "https://github.com/clay/amphora-html/issues"
   },
-  "homepage": "https://github.com/nymag/amphora-html#readme"
+  "homepage": "https://github.com/clay/amphora-html#readme"
 }
