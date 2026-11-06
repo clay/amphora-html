@@ -20,7 +20,7 @@
     "amphora-fs": "^3.0.0",
     "clay-log": "^1.6.0",
     "clayhandlebars": "^6.0.0",
-    "clayutils": "^3.0.0"
+    "clayutils": "^4.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
